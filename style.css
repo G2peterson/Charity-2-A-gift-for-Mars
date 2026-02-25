@@ -1,0 +1,238 @@
+:root{
+  --bg:#0b1020;
+  --panel:rgba(255,255,255,.04);
+  --line:rgba(255,255,255,.10);
+  --text:#e9eefc;
+  --muted:#a8b2d8;
+  --accent:rgba(122,167,255,.22);
+  --accentBorder:rgba(122,167,255,.35);
+  --goodBg:rgba(94,240,176,.18);
+  --goodBorder:rgba(94,240,176,.34);
+  --warnBg:rgba(255,211,111,.16);
+  --warnBorder:rgba(255,211,111,.30);
+  --badBg:rgba(255,122,122,.16);
+  --badBorder:rgba(255,122,122,.34);
+  --shadow: 0 16px 45px rgba(0,0,0,.45);
+  --radius:18px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 900px at 20% 10%, #1a2a66 0%, rgba(26,42,102,0) 55%),
+              radial-gradient(900px 700px at 85% 20%, #2a1a66 0%, rgba(42,26,102,0) 55%),
+              var(--bg);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  background: rgba(10,15,32,.65);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top:0;
+  z-index:10;
+}
+
+.brand{display:flex; align-items:center; gap:12px}
+.mark{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;
+  background: rgba(122,167,255,.15);
+  border:1px solid rgba(122,167,255,.30);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  font-size:20px;
+}
+.title{font-weight:900}
+.subtitle{font-size:12px; color:var(--muted); margin-top:2px}
+
+.status{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+.pill{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  color:var(--muted);
+  font-size:12px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:14px;
+  padding:14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.viewport, .console{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.viewport{padding:14px; display:flex; flex-direction:column; gap:14px}
+
+.porthole{
+  position:relative;
+  height:300px;
+  border-radius: 22px;
+  border:1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  overflow:hidden;
+}
+
+.stars{
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 65%, rgba(255,255,255,.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,.5) 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 85%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 90%, rgba(255,255,255,.5) 0 1px, transparent 2px);
+  opacity:.75;
+}
+
+.scene{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size: 78px;
+  opacity:.92;
+  transform: translateY(8px);
+}
+
+.overlay{
+  position:absolute;
+  left:12px; right:12px; bottom:12px;
+  padding:10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+}
+.sceneName{font-weight:900}
+.sceneHint{font-size:12px; color:var(--muted); margin-top:3px}
+
+.meters{display:grid; grid-template-columns: 1fr; gap:10px}
+.meter{
+  padding:10px 12px;
+  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
+}
+.meterLabel{
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:13px; color:var(--muted);
+  margin-bottom:8px;
+}
+.bar{
+  height:10px;
+  background: rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0%;
+  background: rgba(122,167,255,.65);
+}
+.meterNote{margin-top:8px; font-size:12px; color:var(--muted)}
+
+.console{display:flex; flex-direction:column; min-height: 620px}
+.log{
+  padding:14px;
+  flex:1;
+  overflow:auto;
+  border-bottom:1px solid var(--line);
+}
+.entry{
+  padding:10px 12px;
+  margin-bottom:10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.entry .who{
+  font-family: var(--mono);
+  font-size:12px;
+  color: var(--muted);
+  margin-bottom:6px;
+}
+.entry .msg{line-height:1.35}
+.entry.k{border-color: rgba(122,167,255,.25)}
+.entry.s{border-color: rgba(94,240,176,.22)}
+.entry.ai{border-color: rgba(255,211,111,.22)}
+.entry.m{border-color: rgba(255,122,122,.22)}
+
+.choices{padding:14px}
+.choicesTitle{font-weight:900; margin-bottom:10px}
+.buttons{display:grid; grid-template-columns: 1fr; gap:10px}
+
+button{
+  cursor:pointer;
+  border:none;
+  border-radius: 14px;
+  padding:12px 12px;
+  font-weight:800;
+  color: var(--text);
+  background: var(--accent);
+  border: 1px solid var(--accentBorder);
+  transition: transform .06s ease, background .12s ease;
+}
+button:hover{transform: translateY(-1px)}
+button:active{transform: translateY(0px)}
+button.good{background: var(--goodBg); border-color: var(--goodBorder)}
+button.warn{background: var(--warnBg); border-color: var(--warnBorder)}
+button.danger{background: var(--badBg); border-color: var(--badBorder)}
+button.secondary{background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14)}
+
+.footer{
+  display:flex; gap:10px;
+  padding:12px 14px;
+  border-top:1px solid var(--line);
+  background: rgba(0,0,0,.18);
+}
+.ghost{
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:800;
+  color: var(--muted);
+}
+
+.modal{
+  position:fixed; inset:0;
+  background: rgba(0,0,0,.62);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:100;
+}
+.modalCard{
+  width:min(560px, 100%);
+  background: rgba(12,18,40,.96);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding:14px;
+}
+.modalTitle{font-weight:900; font-size:18px; margin-bottom:8px}
+.modalBody{color: var(--muted); line-height:1.4; margin-bottom:12px}
+.modalActions{display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap}
+
+@media (max-width: 980px){
+  .layout{grid-template-columns: 1fr;}
+  .console{min-height:unset}
+  .porthole{height:260px}
+}
