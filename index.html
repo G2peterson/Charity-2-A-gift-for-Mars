@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Charity Water One — Phase 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark">🚀</div>
+      <div>
+        <div class="title">Charity Water One</div>
+        <div class="subtitle">Phase 2 — Mars Summit + Ceres (3 decisions each)</div>
+      </div>
+    </div>
+
+    <div class="status">
+      <div class="pill" id="shipPill">Ship: —</div>
+      <div class="pill" id="endingPill">Outcome: —</div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="viewport">
+      <div class="porthole">
+        <div class="stars"></div>
+        <div class="scene" id="sceneArt" aria-hidden="true"></div>
+        <div class="overlay">
+          <div class="sceneName" id="sceneName">Loading…</div>
+          <div class="sceneHint" id="sceneHint">—</div>
+        </div>
+      </div>
+
+      <div class="meters">
+        <div class="meter">
+          <div class="meterLabel"><span>Fuel</span><span id="fuelText">—</span></div>
+          <div class="bar"><div class="fill" id="fuelBar"></div></div>
+          <div class="meterNote">Goal for Titan unlock: <strong>Fuel ≥ 2/3</strong> AND <strong>Gold found</strong> AND ship remains mobile.</div>
+        </div>
+
+        <div class="meter">
+          <div class="meterLabel"><span>Earth Water Condition</span><span id="earthText">—</span></div>
+          <div class="bar"><div class="fill" id="earthBar"></div></div>
+        </div>
+
+        <div class="meter">
+          <div class="meterLabel"><span>Mars Water Condition</span><span id="marsText">—</span></div>
+          <div class="bar"><div class="fill" id="marsBar"></div></div>
+        </div>
+
+        <div class="meter">
+          <div class="meterLabel"><span>Time</span><span id="timeText">—</span></div>
+          <div class="bar"><div class="fill" id="timeBar"></div></div>
+          <div class="meterNote">Recon costs <strong>time</strong>. Rushing costs <strong>fuel</strong>.</div>
+        </div>
+
+        <div class="meter">
+          <div class="meterLabel"><span>Gold</span><span id="goldText">—</span></div>
+          <div class="bar"><div class="fill" id="goldBar"></div></div>
+          <div class="meterNote">Gold = funding to buy <strong>10 purification systems</strong> on Earth and stabilize Mars in perpetuity.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="console">
+      <div class="log" id="log" role="log" aria-live="polite"></div>
+
+      <div class="choices">
+        <div class="choicesTitle" id="choicesTitle">Decisions</div>
+        <div class="buttons" id="buttons"></div>
+      </div>
+
+      <div class="footer">
+        <button class="ghost" id="btnReset" type="button">Reset</button>
+        <button class="ghost" id="btnSave" type="button">Save</button>
+        <button class="ghost" id="btnLoad" type="button">Load</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modalTitle" id="modalTitle">—</div>
+      <div class="modalBody" id="modalBody">—</div>
+      <div class="modalActions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
